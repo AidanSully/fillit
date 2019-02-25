@@ -1,6 +1,6 @@
 # fillit
 A program that takes Tetriminos as input and finds the smallest square with these Tetriminos.
-A Tetrimino is for example : `##..\n
+A Tetrimino is for example : `##..'\n'
                               .#..\n
                               .#..\n
                               ....\n`
