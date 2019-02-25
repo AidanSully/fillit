@@ -13,3 +13,4 @@ This project taught me how to use recursion to backtrack and solve problems in a
 - use make to compile
 - make clean to clear objectfiles
 - make fclean to remove binary
+- run with ./fillit <input_file>
