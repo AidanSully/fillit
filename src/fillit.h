@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   fillit.h                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
+/*   By: asulliva <asulliva@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 14:58:59 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/02/11 16:42:36 by nvreeke       ########   odam.nl         */
+/*   Updated: 2019/03/04 15:35:52 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/includes/libft.h"
+# include "../libft/libft.h"
 
 typedef enum		e_bool
 {

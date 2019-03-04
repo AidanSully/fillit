@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 /*
 **	Sets a delimiter '/' for string split
@@ -58,7 +57,6 @@ static void		ft_trim_nline(char **src)
 		ft_strcpy(src[i], temp);
 		i++;
 	}
-	free(temp);
 }
 
 /*

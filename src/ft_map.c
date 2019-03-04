@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_map.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
+/*   By: asulliva <asulliva@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/08 14:55:11 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/02/11 17:47:55 by nvreeke       ########   odam.nl         */
+/*   Updated: 2019/03/04 15:34:17 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

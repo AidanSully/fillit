@@ -29,4 +29,5 @@ void	ft_print_matrix(char **arr)
 		ft_putchar('\n');
 		j++;
 	}
+	ft_putchar('\n');
 }

@@ -3,21 +3,22 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: nvreeke <nvreeke@student.codam.nl>           +#+                      #
+#    By: asulliva <asulliva@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/02/04 15:35:38 by asulliva       #+#    #+#                 #
-#    Updated: 2019/02/14 12:47:37 by nvreeke       ########   odam.nl          #
+#    Updated: 2019/03/04 15:42:23 by asulliva      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRCS = ft_check.c ft_free_arr.c ft_map.c ft_read.c \
-ft_solve.c ft_split.c ft_valid.c main.c
+SRCS = src/ft_check.c src/ft_free_arr.c src/ft_map.c src/ft_read.c \
+src/ft_solve.c src/ft_split.c src/ft_valid.c src/main.c
 
 COMP = gcc
 FLAGS = -Wall -Werror -Wextra
-OBJ = *.o
+OBJ = ft_check.o ft_free_arr.o ft_map.o ft_read.o \
+ft_solve.o ft_split.o ft_valid.o main.o
 LIB = libft/libft.a
 
 all: $(NAME)
@@ -27,7 +28,8 @@ $(NAME):
 	@make -C libft/ fclean && make -C libft/
 	@echo "compiling libft.a succesful!"
 	@echo "Compiling binary..."
-	@$(COMP) $(FLAGS) $(LIB) $(SRCS) -o $(NAME)
+	@$(COMP) $(FLAGS) -c $(SRCS)
+	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME) -L libft/ -lft
 	@echo "Compiling succesful!"
 
 clean:
@@ -38,7 +40,7 @@ clean:
 	@make -C libft/ clean
 	@echo "Removing object files from libft succesful!"
 
-fclean:
+fclean: clean
 	@echo "Removing binary file..."
 	@/bin/rm -f $(NAME)
 	@echo "Removing binary file succesful!"
