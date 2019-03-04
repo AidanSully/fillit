@@ -6,7 +6,7 @@
 /*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/27 17:14:29 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/02/06 17:14:00 by nvreeke       ########   odam.nl         */
+/*   Updated: 2019/03/04 17:24:12 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ void	ft_print_matrix(char **arr)
 		ft_putchar('\n');
 		j++;
 	}
-	ft_putchar('\n');
 }

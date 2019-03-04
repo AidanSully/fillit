@@ -28,12 +28,12 @@ SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c \
 
 COMP = gcc
 FLAG = -Wall -Wextra -Werror -c
-OBJ = *.o
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	@$(COMP) $(FLAG) -Iincludes $(SRCS) 
+	@$(COMP) $(FLAG) $(SRCS) 
 	@ar -rc libft.a $(OBJ)
 
 clean:
