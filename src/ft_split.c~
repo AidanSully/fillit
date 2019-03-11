@@ -6,7 +6,7 @@
 /*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/06 14:53:14 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/03/11 16:22:00 by asulliva      ########   odam.nl         */
+/*   Updated: 2019/02/10 15:59:11 by nvreeke       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void		ft_trim_nline(char **src)
 		ft_strcpy(src[i], temp);
 		i++;
 	}
-	free(temp);
 }
 
 /*
