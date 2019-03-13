@@ -3,39 +3,14 @@
 /*                                                        ::::::::            */
 /*   ft_valid.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
+/*   By: asulliva <asulliva@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/06 17:41:35 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/02/10 15:58:42 by nvreeke       ########   odam.nl         */
+/*   Updated: 2019/03/13 22:24:57 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static t_bool		ft_strsearch(char *src, char *needle)
-{
-	size_t		i;
-	size_t		j;
-	size_t		len;
-
-	i = 0;
-	j = 0;
-	len = 0;
-	while (needle[len] != '\0')
-		len++;
-	while (src[i])
-	{
-		while (needle[j] == src[i + j])
-		{
-			if (j == len - 1)
-				return (true);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	return (false);
-}
 
 static void			ft_fill(char **valid)
 {
@@ -57,49 +32,70 @@ static void			ft_fill(char **valid)
 	ft_strcpy(valid[15], "###..#");
 	ft_strcpy(valid[16], ".#..##...#");
 	ft_strcpy(valid[17], "##..##");
-	ft_strcpy(valid[18], "####............");
-	ft_strcpy(valid[19], "....####........");
-	ft_strcpy(valid[20], "........####....");
-	ft_strcpy(valid[21], "............####");
+	ft_strcpy(valid[18], "####");
 }
 
-t_bool				ft_fill_deze_shit(char *src, char **valid)
+int					init(char *str)
 {
 	int		i;
+	int		x;
+	int		flag;
 
 	i = 0;
-	while (i < 22)
+	x = -1;
+	flag = check_tetri(str, i, x);
+	return (flag);
+}
+
+int					check_tetri(char *s, int i, int x)
+{
+	while (s[i])
 	{
-		if (ft_strsearch(src, valid[i]) == true)
-		{
-			ft_strclr(src);
-			if (i < 18)
-				ft_strcpy(src, valid[i]);
-			if (i > 17)
-				ft_strcpy(src, "####");
-			return (true);
-		}
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 10]) && H(s[i + 15])) ? x = 0 : 0;
+		(H(s[i]) && H(s[i + 4]) && H(s[i + 5]) && H(s[i + 6])) ? x = 1 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 4]) && H(s[i + 5])) ? x = 2 : 0;
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 6]) && H(s[i + 11])) ? x = 3 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 6]) && H(s[i + 7])) ? x = 4 : 0;
+		(H(s[i]) && H(s[i + 4]) && H(s[i + 5]) && H(s[i + 9])) ? x = 5 : 0;
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 6]) && H(s[i + 10])) ? x = 6 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 2]) && H(s[i + 5])) ? x = 7 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 6]) && H(s[i + 11])) ? x = 8 : 0;
+		(H(s[i]) && H(s[i + 3]) && H(s[i + 4]) && H(s[i + 5])) ? x = 9 : 0;
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 10]) && H(s[i + 11])) ? x = 10 : 0;
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 9]) && H(s[i + 10])) ? x = 11 : 0;
+		(H(s[i]) && H(s[i + 5]) && H(s[i + 6]) && H(s[i + 7])) ? x = 12 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 5]) && H(s[i + 10])) ? x = 13 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 2]) && H(s[i + 7])) ? x = 14 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 2]) && H(s[i + 6])) ? x = 15 : 0;
+		(H(s[i]) && H(s[i + 4]) && H(s[i + 5]) && H(s[i + 10])) ? x = 16 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 5]) && H(s[i + 6])) ? x = 17 : 0;
+		(H(s[i]) && H(s[i + 1]) && H(s[i + 2]) && H(s[i + 3])) ? x = 18 : 0;
 		i++;
 	}
-	return (false);
+	return (x);
 }
 
 t_bool				ft_valid(char **src, size_t bytes)
 {
 	size_t	i;
 	size_t	blocks;
-	t_bool	flag;
+	int		flag;
 	char	**valid;
 
 	i = 0;
-	valid = ft_malloc_arr(22, 16);
+	valid = ft_malloc_arr(19, 14);
 	ft_fill(valid);
 	blocks = (bytes + 1) / 21;
 	while (i < blocks)
 	{
-		flag = ft_fill_deze_shit(src[i], valid);
-		if (flag == false)
+		flag = init(src[i]);
+		if (flag == -1)
 			return (false);
+		else
+		{
+			ft_strclr(src[i]);
+			ft_strcpy(src[i], valid[flag]);
+		}
 		i++;
 	}
 	ft_free_arr(valid);

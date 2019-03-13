@@ -6,7 +6,7 @@
 /*   By: asulliva <asulliva@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 14:58:59 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/03/04 15:35:52 by asulliva      ########   odam.nl         */
+/*   Updated: 2019/03/13 22:09:40 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FILLIT_H
 # define BUFF_SIZE 400
 # define DH(x) (x == '#' || x == '.')
+# define H(x) (x == '#')
 # define NL(x) (x == '\n')
 # define DOT(x) (x == '.')
 # define ALLCH(x) (x == '#' || x == '.' || x == '\n')
@@ -25,8 +26,8 @@
 
 typedef enum		e_bool
 {
-	true,
-	false
+	false,
+	true
 }					t_bool;
 
 /*
@@ -35,6 +36,7 @@ typedef enum		e_bool
 
 size_t		ft_calc_sqrt(size_t bytes);
 int			solve(char **tetri, size_t bytes);
+int			check_tetri(char *str, int i, int x);
 
 /*
 ** char functions
@@ -54,6 +56,7 @@ char		get_letter(char *str);
 void		ft_free_arr(char **arr);
 void		error(void);
 void		letter_change(char **tetri);
+void		ft_trim_nline(char **src);
 
 /*
 ** t_bool functions

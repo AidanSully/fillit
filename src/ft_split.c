@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_split.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: nvreeke <nvreeke@student.codam.nl>           +#+                     */
+/*   By: asulliva <asulliva@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/06 14:53:14 by nvreeke        #+#    #+#                */
-/*   Updated: 2019/03/11 16:22:00 by asulliva      ########   odam.nl         */
+/*   Updated: 2019/03/13 22:11:23 by asulliva      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,37 +30,6 @@ static void		ft_set_delim(char *src, int bytes)
 }
 
 /*
-**	Trims the newline character
-*/
-
-static void		ft_trim_nline(char **src)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	*temp;
-
-	i = 0;
-	temp = ft_strnew(16);
-	while (src[i])
-	{
-		j = 0;
-		k = 0;
-		while (src[i][j])
-		{
-			if (src[i][j] == '\n')
-				j++;
-			temp[k] = src[i][j];
-			j++;
-			k++;
-		}
-		ft_strcpy(src[i], temp);
-		i++;
-	}
-	free(temp);
-}
-
-/*
 **	Calls all the functions for setting a delimiter, splitting on the delimiter
 **	and trims the newlines.
 */
@@ -71,6 +40,5 @@ char			**ft_split_clean(char *str, int bytes)
 
 	ft_set_delim(str, bytes);
 	arr = ft_strsplit(str, '/');
-	ft_trim_nline(arr);
 	return (arr);
 }
